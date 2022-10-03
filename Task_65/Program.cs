@@ -7,10 +7,33 @@ int M = int.Parse(Console.ReadLine()!);
 Console.Write("Введите число N: ");
 int N = int.Parse(Console.ReadLine()!);
 
-Console.Write(NumeralRow(M, N));
-
-string NumeralRow(int M, int N)
+int min = M;
+int max = N;
+if (N < M)
 {
-    if (N == M) return $"{M}";
-    else return N + ", " + NumeralRow(M, N - 1);
+    min = N;
+    max = M;
 }
+
+Console.Write(NumeralRow(min, max));
+
+string NumeralRow(int min, int max)
+{
+    if (max == min) return $"{min}";
+    else return max + ", " + NumeralRow(min, max - 1);
+}
+
+
+
+// int rangeMin = Min(M, N);
+// int rangeMax = Max(M, N);
+
+// int Min(int a, int b)
+// {
+//       return a < b ? a : b; 
+// }
+
+// int Max(int a, int b)
+// {
+//       return a > b ? a : b; 
+// }
